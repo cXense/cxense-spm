@@ -13,7 +13,7 @@ that allows using Cxense servers' functionality in mobile application through na
 ### CocoaPods
 
 ```ruby
-pod 'CxenseSDK', '~>1.9.3'
+pod 'CxenseSDK', '~>1.9.4'
 ```
 
 ### Swift Package Manager
@@ -24,7 +24,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/cXense/cxense-spm.git", 
-            from: "1.9.3"
+            from: "1.9.4"
         )
     ],
     targets: [
@@ -69,7 +69,7 @@ CXConfiguration *config = [[CXConfiguration alloc] initWithUserName:@"api@user.c
 `Configuration` class provides control over other multiple options through which you can modify SDK's behaviour. All available for configuration options are listed below:
 - `userName` (required) - Email of the user which has API access.
 - `apiKey` (required) - API key of the user with API access.
-- `persistentCookie` (required) - Unique identifier to identify and track the user. To fill in this parameter, you can ask the user for IDFA. If the user prohibits the use of IDFA, you can generate a random identifier the first time the user starts the application and save it to persistent storage.
+- `persistentCookie` (default: once generated unique identifier) - Unique identifier to identify and track the user (see below for details).
 - `dispatchInterval` (default: 30 sec) - Defines amount of seconds between tries which dispatch loop will perform in attempt to send reported events.
 - `outdatedTimeout` (default: 7 days) - Defines amount of seconds during which all dispatched events will be stored in local database after successful sending.
 - `networkRestriction` (default: none) - Defines network conditions upon which dispatch loop can send events.
@@ -78,6 +78,14 @@ CXConfiguration *config = [[CXConfiguration alloc] initWithUserName:@"api@user.c
 - `autoMetaInfTrackingEnabled` (default: true) - Shows whether automatic meta-information tracking is enabled or not. Under meta-information following items are meant: **app name**, **app version**, **sdk version**. In case this flag is enabled, all specified parameters will be send as events' custom parameters.
 - `dmpPushPersistentId` - Identifier of persistent query which points to "/dmp/push" API. If set, all performance events will be pushed through DMP pixel automatically. They are pushed through "/dmp/push/" API directly by default.
 - `consentOptions` - List of options that indicate consent on data processing.
+
+### Persistent cookie
+By default, the value for the persistentCookie configuration property is generated once upon initialization of the Cxense SDK. You can also use your ID for users, and for anonymous users use the value 'anonymous', 'default', etc.
+
+> Do not change the Configuration.persistentCookie property after initializing the Cxense SDK, this will have no effect. To change the Configuration.persistentCookie property after initializing the Cxense SDK, use the methods:
+> - `Cxense.replacePersistentCookie(persistentCookie: String)` - to change
+> - `Cxense.clearPersistentCookie()` - to set the default
+
 
 ## Initialize
 
