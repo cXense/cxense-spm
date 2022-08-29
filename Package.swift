@@ -21,13 +21,13 @@ let package = Package(
     targets: [
         .binaryTarget(
             name: "CxenseSDK",
-            url: "https://s3.amazonaws.com/sdk.cxense.com/CxenseSDK-iOS-1.9.8.zip",
-            checksum: "3ba18d0e4da1e1dd7b51b87f12a08c612965fc40b2c8b701373b4f5c9a26bf42"
+            url: "https://s3.amazonaws.com/sdk.cxense.com/CxenseSDK-iOS-1.9.9.zip",
+            checksum: "be46b34c2bb161fe3ec7fbaee942821f1eed91776f026b794218680492174f87"
         ),
         .binaryTarget(
             name: "CxenseSDKTv",
-            url: "https://s3.amazonaws.com/sdk.cxense.com/CxenseSDK-tvOS-1.9.8.zip",
-            checksum: "7f803832e2ff8982a73445b4fe113fb9ef219d5af4ee91c1e3a417785217008b"
+            url: "https://s3.amazonaws.com/sdk.cxense.com/CxenseSDK-tvOS-1.9.9.zip",
+            checksum: "a5d4364d53f6cf89489121295699084c8d63481f640812a01f667d3244315c35"
         )
     ]
 )
