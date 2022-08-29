@@ -237,6 +237,15 @@ CXDmpUserIdentifier* userId = [[CXDmpUserIdentifier alloc] initWithIdentifier:@"
 CXPerformanceEventBuilder* builder = [CXPerformanceEventBuilder makeBuilderWithName:@"UserClickedOnButton#123" type:@"click" origin:@"xyz-sample" siteId:@"1234567890" andUserIds:@[userId]];
 ```
 
+### Force send events ###
+To dispatch events without adding to the queue, you can use the ```Cxense.forceReportEvent``` method
+
+```swift
+Cxense.forceReportEvent(event) { isSent, error in
+    ...
+}
+```
+
 **Builder functions for setting parameters:**
 
 - `setTime(_ interval: TimeInterval)` - Set exact time of an event.
