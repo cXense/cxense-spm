@@ -545,7 +545,7 @@ Cxense SDK provides support of [Persisted Queries](https://wiki.cxense.com/displ
 
 GDPR (General Data Protection Regulation, taken into account in EU) requires any operations with user data to be explicitly mentioned and have explicit user consent. For that purpose, the SDK provides special consent API to make easy setting end user consent for data processing.
 
-***Swift:***
+***Consent options:***
 ```swift
 config.consentOptions = [.consentRequired, .pvAllowed]
 ```
@@ -568,9 +568,29 @@ public enum ConsentOptions: Int {
 
   /// Targeting advertising based on browsing habits and audience segmentation
   case adAllowed
+
+  /// Allowed usage of user-agent and other device-specific data.
+  case deviceAllowed
+  
+  /// Allowed usage of geolocation with page view events
+  case geoAllowed
 }
 ```
 
 > Pay attention that if given consent options may affect not only data processing on backend, but also affect SDK's functionality. For example, for applications where user consent is required (.consentRequired option given) following effects are possible:
 > - `.pvAllowed`: Controls events reporting. If not given - then no events will be reported.
 > - `.segmentAllowed`: Controls segments retrieval. If not given - then empty list of segments will be returned instead of actual.
+
+***Consent version (default: v1):***
+```swift
+config.consentVersion = ConsentVersion.v2
+```
+
+***ConsentVersion structure:***
+```swift
+@objc(CXConsentVersion)
+public enum ConsentVersion: Int {
+    case v1
+    case v2
+}
+```
