@@ -13,7 +13,7 @@ that allows using Cxense servers' functionality in mobile application through na
 ### CocoaPods
 
 ```ruby
-pod 'CxenseSDK', '~>1.9.8'
+pod 'CxenseSDK', '~>1.9.11'
 ```
 
 ### Swift Package Manager
@@ -24,7 +24,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/cXense/cxense-spm.git", 
-            from: "1.9.8"
+            from: "1.9.11"
         )
     ],
     targets: [
@@ -283,15 +283,6 @@ if (error != nil) {
 [CXCxense reportEvent:event];
 ```
 
-### Force send events ###
-To dispatch events without adding to the queue, you can use the ```Cxense.forceReportEvent``` method
-
-```swift
-Cxense.forceReportEvent(event) { isSent, error in
-    ...
-}
-```
-
 ### Track active time
 
 The SDK can track active time for page view events. For example - how long user had read specific article in the application. That can be easily done by using following function with event's name:
@@ -545,7 +536,7 @@ Cxense SDK provides support of [Persisted Queries](https://wiki.cxense.com/displ
 
 GDPR (General Data Protection Regulation, taken into account in EU) requires any operations with user data to be explicitly mentioned and have explicit user consent. For that purpose, the SDK provides special consent API to make easy setting end user consent for data processing.
 
-***Consent options:***
+***Swift:***
 ```swift
 config.consentOptions = [.consentRequired, .pvAllowed]
 ```
@@ -568,29 +559,9 @@ public enum ConsentOptions: Int {
 
   /// Targeting advertising based on browsing habits and audience segmentation
   case adAllowed
-
-  /// Allowed usage of user-agent and other device-specific data.
-  case deviceAllowed
-  
-  /// Allowed usage of geolocation with page view events
-  case geoAllowed
 }
 ```
 
 > Pay attention that if given consent options may affect not only data processing on backend, but also affect SDK's functionality. For example, for applications where user consent is required (.consentRequired option given) following effects are possible:
 > - `.pvAllowed`: Controls events reporting. If not given - then no events will be reported.
 > - `.segmentAllowed`: Controls segments retrieval. If not given - then empty list of segments will be returned instead of actual.
-
-***Consent version (default: v1):***
-```swift
-config.consentVersion = ConsentVersion.v2
-```
-
-***ConsentVersion structure:***
-```swift
-@objc(CXConsentVersion)
-public enum ConsentVersion: Int {
-    case v1
-    case v2
-}
-```
