@@ -559,6 +559,12 @@ public enum ConsentOptions: Int {
 
   /// Targeting advertising based on browsing habits and audience segmentation
   case adAllowed
+
+  /// Allowed usage of user-agent and other device-specific data.
+  case deviceAllowed
+
+  /// Allowed usage of geolocation with page view events
+  case geoAllowed
 }
 ```
 
