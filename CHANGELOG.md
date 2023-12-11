@@ -1,5 +1,8 @@
 # Changelog
 
+v1.9.12
+* Bug fixes
+
 v1.9.11
 * Bug fixes
 
