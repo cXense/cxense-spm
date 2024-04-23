@@ -1,5 +1,8 @@
 # Changelog
 
+v1.10.0
+* Added privacy manifest
+
 v1.9.12
 * Bug fixes
 
