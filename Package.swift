@@ -7,18 +7,34 @@ let package = Package(
         .library(
             name: "CxenseSDK",
             targets: [
-                "CxenseSDK"
+                "CxenseSDKWrapper"
             ]
         ),
         .library(
             name: "CxenseSDKTv",
             targets: [
-                "CxenseSDKTv"
+                "CxenseSDKTvWrapper"
             ]
         )
     ],
     dependencies: [],
     targets: [
+        .target(
+            name: "CxenseSDKWrapper",
+            dependencies: ["CxenseSDK"],
+            path: "Wrapper",
+            resources: [
+                .copy("Resources/PrivacyInfo.xcprivacy")
+            ]
+        ),
+        .target(
+            name: "CxenseSDKTvWrapper",
+            dependencies: ["CxenseSDKTv"],
+            path: "Wrapper",
+            resources: [
+                .copy("Resources/PrivacyInfo.xcprivacy")
+            ]
+        ),
         .binaryTarget(
             name: "CxenseSDK",
             url: "https://s3.amazonaws.com/sdk.cxense.com/CxenseSDK-iOS-1.10.0.zip",
