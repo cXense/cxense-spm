@@ -30,7 +30,7 @@ let package = Package(
         .target(
             name: "CxenseSDKTvWrapper",
             dependencies: ["CxenseSDKTv"],
-            path: "Wrapper",
+            path: "WrapperTv",
             resources: [
                 .copy("Resources/PrivacyInfo.xcprivacy")
             ]
