@@ -1,6 +1,6 @@
-# Piano DMP and Content SDK for iOS
+# Cxense SDK for iOS
 
-Piano DMP and Content SDK is a software development kit designed and developed specifically for iOS platform. It provides set of APIs
+Cxense SDK is a software development kit designed and developed specifically for iOS platform. It provides set of APIs
 that allows using Cxense servers' functionality in mobile application through native APIs.
 
 ## Requirements
@@ -13,7 +13,7 @@ that allows using Cxense servers' functionality in mobile application through na
 ### CocoaPods
 
 ```ruby
-pod 'CxenseSDK', '~>1.10.0'
+pod 'CxenseSDK', '~>1.10.1'
 ```
 
 ### Swift Package Manager
@@ -24,7 +24,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/cXense/cxense-spm.git", 
-            from: "1.10.0"
+            from: "1.10.1"
         )
     ],
     targets: [
@@ -50,7 +50,7 @@ import CxenseSDK
 
 ## Configuration
 
-Before SDK can be used in the application it require to be configured. Configuration can be easily provided by creating instance of special class called 'Configuration'. It contains set of methods vital for SDK's execution. It requires two main properties to be set - username and API key.
+Before Cxense SDK can be used in the application it require to be configured. Configuration can be easily provided by creating instance of special class called 'Configuration'. It contains set of methods vital for SDK's execution. It requires two main properties to be set - username and API key.
 
 You can provide them by instantiating `Configuration` class:
 
@@ -80,9 +80,9 @@ CXConfiguration *config = [[CXConfiguration alloc] initWithUserName:@"api@user.c
 - `consentOptions` - List of options that indicate consent on data processing.
 
 ### Persistent cookie
-By default, the value for the persistentCookie configuration property is generated once upon initialization of the SDK. You can also use your ID for users, and for anonymous users use the value 'anonymous', 'default', etc.
+By default, the value for the persistentCookie configuration property is generated once upon initialization of the Cxense SDK. You can also use your ID for users, and for anonymous users use the value 'anonymous', 'default', etc.
 
-> Do not change the Configuration.persistentCookie property after initializing the SDK, this will have no effect. To change the Configuration.persistentCookie property after initializing the SDK, use the methods:
+> Do not change the Configuration.persistentCookie property after initializing the Cxense SDK, this will have no effect. To change the Configuration.persistentCookie property after initializing the Cxense SDK, use the methods:
 > - `Cxense.replacePersistentCookie(persistentCookie: String)` - to change
 > - `Cxense.clearPersistentCookie()` - to set the default
 
@@ -113,7 +113,7 @@ if (error != nil) {
 
 ## Events tracking
 
-SDK allows tracking events of two types:
+Cxense SDK allows tracking events of two types:
 - page view
 - performance
 
@@ -323,7 +323,7 @@ do {
 
 ## Working with DMP
 
-Beside performance events reporting SDK provides following functionality to the applications:
+Beside performance events reporting Cxense SDK provides following functionality to the applications:
 - access to user's profile
 - getting list of segments for the user
 - manipulation with user linking
@@ -399,6 +399,16 @@ setUserExternalLink(
     identifierType: String,
     cxenseId: String,
     _ callback: @escaping (_ userIdentifier: DMPUserIdentifier?, _ error: Error?) -> ()
+)
+
+segments(
+    siteGroupIds: [String],
+    userId: DMPUserIdentifier? = nil,
+    userIds: [DMPUserIdentifier]? = nil,
+    candidateSegmentIds: [String]? = nil,
+    shortIds: Bool = false,
+    context: DMPSegmentContext? = nil,
+    _ callback: @escaping (_ segments: DMPSegments?, _ error: Error?) -> ()
 )
 ```
 
@@ -499,7 +509,7 @@ CXContentRecommendation *rec = ...;
 
 ## Using persisted queries
 
-SDK provides support of [Persisted Queries](https://wiki.cxense.com/display/cust/Persisted+Query+Tutorial)
+Cxense SDK provides support of [Persisted Queries](https://wiki.cxense.com/display/cust/Persisted+Query+Tutorial)
 
 > This feature rely heavily on Swift generics and some underlying mechanisms that are not compatible with Objective C. Hence to that the only option to use Persisted Query API in Objective C project is to convert it to mixed project by developing own Swift wrapper for the API. See following article if you want to find more information on mixed projects: [Using Swift with Cocoa and Objective-C](https://developer.apple.com/library/content/documentation/Swift/Conceptual/BuildingCocoaApps/MixandMatch.html)
 
