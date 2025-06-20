@@ -13,7 +13,7 @@ that allows using Cxense servers' functionality in mobile application through na
 ### CocoaPods
 
 ```ruby
-pod 'CxenseSDK', '~>1.10.1'
+pod 'CxenseSDK', '~>1.10.3'
 ```
 
 ### Swift Package Manager
@@ -24,7 +24,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/cXense/cxense-spm.git", 
-            from: "1.10.1"
+            from: "1.10.3"
         )
     ],
     targets: [
