@@ -1,5 +1,8 @@
 # Changelog
 
+v1.10.4
+* Updated trackActiveTime
+
 v1.10.3
 * Updated trackActiveTime
 
