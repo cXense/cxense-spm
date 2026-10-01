@@ -4,7 +4,7 @@ Cxense SDK is a software development kit designed and developed specifically for
 that allows using Cxense servers' functionality in mobile application through native APIs.
 
 ## Requirements
-- iOS 10.0+
+- iOS 15.0+ / tvOS 15.0+
 - Xcode 13.0
 - Swift 5.5
 
@@ -13,7 +13,7 @@ that allows using Cxense servers' functionality in mobile application through na
 ### CocoaPods
 
 ```ruby
-pod 'CxenseSDK', '~>1.10.4'
+pod 'CxenseSDK', '~>1.10.6'
 ```
 
 ### Swift Package Manager
@@ -24,7 +24,7 @@ let package = Package(
     dependencies: [
         .package(
             url: "https://github.com/cXense/cxense-spm.git", 
-            from: "1.10.4"
+            from: "1.10.6"
         )
     ],
     targets: [
