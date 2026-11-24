@@ -10,12 +10,6 @@ that allows using Cxense servers' functionality in mobile application through na
 
 ## Installation
 
-### CocoaPods
-
-```ruby
-pod 'CxenseSDK', '~>1.10.6'
-```
-
 ### Swift Package Manager
 
 ```swift
@@ -34,6 +28,12 @@ let package = Package(
         )
     ]
 )
+```
+
+### CocoaPods
+
+```ruby
+pod 'CxenseSDK', '~>1.10.6'
 ```
 
 ## Import
