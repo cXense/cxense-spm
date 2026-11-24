@@ -33,8 +33,16 @@ let package = Package(
 ### CocoaPods
 
 ```ruby
+source 'https://gitlab.com/piano-public/sdk/ios/legacy/specs.git'
+source 'https://cdn.cocoapods.org/'
+
 pod 'CxenseSDK', '~>1.10.6'
 ```
+
+> CocoaPods Trunk is read-only starting December 2, 2026, so new versions are published only to the
+> [Piano specs repository](https://gitlab.com/piano-public/sdk/ios/legacy/specs). Keep the CocoaPods CDN source
+> as well: it serves earlier versions and third-party dependencies. For new integrations we recommend
+> Swift Package Manager.
 
 ## Import
 
